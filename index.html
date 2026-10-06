@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculatrice de Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            text-align: center;
+            margin-top: 60px;
+        }
+        .container {
+            background: white;
+            width: 300px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px gray;
+        }
+        input {
+            padding: 8px;
+            width: 80px;
+            font-size: 16px;
+            text-align: center;
+        }
+        button {
+            padding: 8px 20px;
+            background-color: #4a90d9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: #357abd;
+        }
+        #resultat {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Calculatrice de Notes</h2>
+        <p>Note sur 20 :</p>
+        <input type="number" id="note" min="0" max="20">
+        <br>
+        <button onclick="calculer()">Calculer</button>
+        <p id="resultat"></p>
+    </div>
+
+    <script>
+        function calculer() {
+            var note = parseFloat(document.getElementById("note").value);
+            var r = document.getElementById("resultat");
+
+            if (isNaN(note)) {
+                r.innerHTML = "Entrez une note valide !";
+                r.style.color = "orange";
+            } else if (note >= 10) {
+                r.innerHTML = "Admis(e)";
+                r.style.color = "green";
+            } else {
+                r.innerHTML = "Ajourné(e)";
+                r.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
 
